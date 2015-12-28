@@ -2,7 +2,7 @@
 
 namespace Kurs;
 
-class Super {
+class Math {
     public function addOne($num) {
         return $num + $this->one();
     }
