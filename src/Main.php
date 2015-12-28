@@ -26,4 +26,6 @@ if(is_array($frassar)) {
     }
 }
 
+$random_name = substr(md5(microtime()),rand(0,26),5);
+Kurs\Db::registerNewUser($random_name);
 ?>

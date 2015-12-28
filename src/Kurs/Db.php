@@ -8,6 +8,15 @@ class Db {
     private static $U = "";
     private static $P = "";
 
+    public static function registerNewUser($name)
+    {
+        $connection = new \PDO(self::$CS, self::$U, self::$P);
+        $statement = $connection->prepare('INSERT INTO users (name) VALUES (:name)');
+        $statement->execute([
+            ':name' => $name
+        ]);
+    }
+
     public static function usersByName($name)
     {
         $connection = new \PDO(self::$CS, self::$U, self::$P);
