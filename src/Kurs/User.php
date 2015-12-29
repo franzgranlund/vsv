@@ -2,28 +2,30 @@
 
 namespace Kurs;
 
-class User {
+class User extends ModelRecord {
     protected $id;
     protected $name;
 
-    public function getId()
-    {
-        return $this->id;
-    }
+    public static $tableName = "users";
 
-    public function setId($id)
+    public function setName($n)
     {
-        $this->id = $id;
-    }
-
-    public function setName($name)
-    {
-        $this->name = $name;
+        $this->name = $n;
     }
 
     public function getName()
     {
         return $this->name;
+    }
+
+    public function setId($i)
+    {
+        $this->id = $i;
+    }
+
+    public function getId()
+    {
+        return $this->id;
     }
 
     public static function asJson(User $u)
@@ -35,6 +37,7 @@ class User {
     {
         return (strtolower($u->getName()) === strrev(strtolower($u->getName())));
     }
+
 }
 
 ?>
